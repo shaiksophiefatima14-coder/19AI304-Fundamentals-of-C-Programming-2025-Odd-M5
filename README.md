@@ -39,7 +39,38 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+void swapv(int, int);       
+void swapr(int *, int *);   
+int main() {
+    int a = 10, b = 20;
+    printf("Before swapv(): a = %d, b = %d\n", a, b);
+    swapv(a, b);
+    printf("After swapv(): a = %d, b = %d (no change)\n", a, b);
+    printf("Before swapr(): a = %d, b = %d\n", a, b);
+    swapr(&a, &b);
+    printf("After swapr(): a = %d, b = %d (swapped)\n", a, b);
+    return 0;
+}
+void swapv(int x, int y) {
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+    printf(" Inside swapv(): x = %d, y = %d\n", x, y);
+}
+void swapr(int *x, int *y) {
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+    printf(" Inside swapr(): *x = %d, *y = %d\n", *x, *y);
+}
+```
 # Output:
+<img width="464" height="177" alt="image" src="https://github.com/user-attachments/assets/ba7652a9-094f-4930-8112-8689bd19443a" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +108,35 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+int fibo(int x) {
+    if (x == 0)
+        return 0;
+    else if (x == 1)
+        return 1;
+    else
+        return fibo(x - 1) + fibo(x - 2);
+}
+int main() {
+    int n, i;
+    printf("Enter the number of terms (positive integer): ");
+    scanf("%d", &n);
+    if (n <= 0) {
+        printf("Please enter a positive integer.\n");
+        return 1;
+    }
+    printf("Fibonacci series for %d terms:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("%d ", fibo(i));
+    }
+    printf("\n");
+    return 0;
+}
+```
 # Output:
+<img width="556" height="88" alt="image" src="https://github.com/user-attachments/assets/fbd2eb3a-c130-4c09-8ee3-8b5ab976c39b" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +178,36 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+void printEvenOdd(int cur, int limit) {
+    if (cur > limit)
+        return; 
+    if (cur == limit) {
+        printf("%d\n", cur);
+    } else {
+        printf("%d, ", cur); 
+        printEvenOdd(cur + 2, limit); 
+    }
+}
+int main() {
+    int lowerLimit, upperLimit;
+    printf("Enter the lower limit: ");
+    scanf("%d", &lowerLimit);
+    printf("Enter the upper limit: ");
+    scanf("%d", &upperLimit);
+    printf("Numbers in the given range with a step of 2:\n");
+    printEvenOdd(lowerLimit, upperLimit);
+
+    return 0;
+}
+```
 # Output:
+<img width="496" height="117" alt="image" src="https://github.com/user-attachments/assets/215f07ad-918b-4a77-81db-de8d6a8b5f70" />
+
+<img width="661" height="134" alt="image" src="https://github.com/user-attachments/assets/42c8fd99-5484-4731-896b-3900d6b590c2" />
+
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +249,35 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int *ptr;           
+    int n, i, sum = 0;  
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
+    ptr = (int*) calloc(n, sizeof(int));
+    if (ptr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", ptr + i);
+    }
+    for (i = 0; i < n; i++) {
+        sum += *(ptr + i); 
+    }
+    printf("Sum = %d\n", sum);
+    free(ptr);
+
+    return 0;
+}
+```
 # Output:
+<img width="404" height="139" alt="image" src="https://github.com/user-attachments/assets/eb076cbe-9606-40fe-b960-e8968f571e6c" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +313,31 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+void displayArray(int *arr, int size);
+int main() {
+    int arr[5]; 
+    int i;
+    printf("Enter 5 integers:\n");
+    for (i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Array elements are:\n");
+    displayArray(arr, 5);
+
+    return 0;
+}
+void displayArray(int *arr, int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("%d ", *(arr + i)); 
+    }
+    printf("\n");
+}
+```
 # Output:
+<img width="272" height="126" alt="image" src="https://github.com/user-attachments/assets/77195eda-1862-4895-9b34-626ee8da9f84" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
